@@ -21,6 +21,31 @@ class State(rx.State):
     prediction: str = ""
     confidence: float = 0.0
 
+    def set_sepal_length(self, value: str):
+        try:
+            self.sepal_length = float(value)
+        except ValueError:
+            self.sepal_length = 5.1
+
+    def set_sepal_width(self, value: str):
+        try:
+            self.sepal_width = float(value)
+        except ValueError:
+            self.sepal_width = 3.5
+
+    def set_petal_length(self, value: str):
+        try:
+            self.petal_length = float(value)
+        except ValueError:
+            self.petal_length = 1.4
+
+    def set_petal_width(self, value: str):
+        try:
+            self.petal_width = float(value)
+        except ValueError:
+            self.petal_width = 0.2
+
+
     def predict(self):
         # Convert inputs to DataFrame with correct feature names
         input_df = pd.DataFrame(
